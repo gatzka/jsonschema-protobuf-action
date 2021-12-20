@@ -1,9 +1,9 @@
 #!/bin/sh
 set -ex
 
-JSONSCHEMA_OPTIONS="--jsonschema_out=json_fieldnames,disallow_additional_properties:"
+JSONSCHEMA_OPTIONS="--jsonschema_out="
 if [ "x$INPUT_OPTIONS" != 'x' ]; then
-  JSONSCHEMA_OPTIONS+=$INPUT_OPTIONS
+  JSONSCHEMA_OPTIONS=$INPUT_OPTIONS
   JSONSCHEMA_OPTIONS+=":"
 fi
 JSONSCHEMA_OPTIONS+="INPUT_OUTPUT_DIR"

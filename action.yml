@@ -1,0 +1,25 @@
+name: 'json shema build'
+description: 'GitHub Action '
+author: 'Stephan Gatzka <@gatzka>'
+inputs: 
+  proto_file:
+    description: 'path to protocol buffer file to transform'
+    required: true 
+  proto_path:
+    description: 'path where to look for protocol buffer files'
+    required: true 
+  output_dir:
+    description: 'directory where the generated schema files shall be generated'
+    required: true 
+  options:
+    description: 'a comma separated list of translation option, see https://github.com/chrusty/protoc-gen-jsonschema'
+    required: false 
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.proto_file}}
+    - ${{ inputs.proto_path}}
+    - ${{ inputs.output_dir}}
+    - ${{ inputs.options}}
+
